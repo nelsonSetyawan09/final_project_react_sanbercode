@@ -12,9 +12,6 @@ import EditUser from "./views/EditUser";
 import ViewUser from "./views/ViewUser"
 
 class App extends Component{
-  componentDidMount(){
-    
-  }
   render(){
     return (
       <Router>
