@@ -1,6 +1,6 @@
-const users = (state =[{name:"anggrainy"}],action) =>{
+export const users = (state =[{name:"anggrainy"}],action) =>{
     switch(action.type){
-        case "setUser":
+        case "setUsers":
             state = action.users;
             return state;
         case 'addUser':
@@ -20,4 +20,16 @@ const users = (state =[{name:"anggrainy"}],action) =>{
     }
 };
 
-export default users;
+export const user = (state ={},action) =>{
+    switch(action.type){
+        case "setUser":
+            state = action.user;
+            return state;
+        case "editUser":
+            state[action.key]=action.value;
+            return state;
+        default:
+            return state
+
+    }
+};

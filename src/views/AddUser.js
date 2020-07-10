@@ -1,21 +1,26 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {addUserAsync} from "../actions";
+import {
+    useHistory
+  } from "react-router-dom";
 
 function EditUser(){
+    let history = useHistory();
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [website, setWebsite] = useState("")
     const dispatch = useDispatch();
 
-    const handleSubmitEditUser = (e) =>{
+    const handleSubmitAddUser = (e) =>{
         e.preventDefault();
         const user = {
             name,
             phone,
             website
         }
-      dispatch(addUserAsync(user))
+      dispatch(addUserAsync(user));
+      history.push("/");
     }
     const handleChangeName = (e) =>{
         setName(e.target.value)
@@ -29,7 +34,7 @@ function EditUser(){
     return (
         <div className="wrap-edit-user">
             <h4>Add User</h4>
-           <form onSubmit={handleSubmitEditUser} className="form-user">
+           <form onSubmit={handleSubmitAddUser} className="form-user">
                 <div className="group-input">
                     <label className="label-name">
                         <span>Name:</span>

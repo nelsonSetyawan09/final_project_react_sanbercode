@@ -1,41 +1,49 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {editUserAsync} from "../actions";
+import {editUserAsync,setUserAsync} from "../actions";
 import "./EditUser.css";
 import {
-    useRouteMatch
+    useRouteMatch,
+    useHistory
   } from "react-router-dom";
 
 function EditUser(props){
-    let {params} = useRouteMatch();
-    const users = useSelector(state => state.users);
+    let history = useHistory();
+    const user = useSelector(state => state.user);
+    const dispatch = useDispatch()
+    let {params} = useRouteMatch()
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [website, setWebsite] = useState("")
-    useEffect(() => {
-        const user = users.find(user => user.id === Number.parseInt(params.id));
-        setName(user.name);
-        setPhone(user.phone);
-        setWebsite(user.website);
+    const setUser = async () =>{
+     await dispatch(setUserAsync(params.id))
+    }
+    useEffect( () => {
+      setUser();
       },[]);
-    const dispatch = useDispatch()
+      useEffect( () => {
+        setName(user.name);
+        setPhone(user.phone)
+        setWebsite(user.website)
+    },[user]);
     const handleSubmitEditUser = (e) =>{
         e.preventDefault();
-        const user = {
-            name,
-            phone,
-            website
+        const editUser = {
+            name: user.name,
+            phone:user.phone,
+            website: user.website
         }
-      dispatch(editUserAsync(params.id, user))
+      console.log('edit user', editUser)
+      history.push("/");
     }
     const handleChangeName = (e) =>{
-        setName(e.target.value)
+        setName( e.target.value);
     }
     const handleChangePhone = (e) =>{
-        setPhone(e.target.value)
+       setPhone( e.target.value);
     }
     const handleChangeWebsite = (e) =>{
-        setWebsite(e.target.value)
+       setWebsite( e.target.value);
     }
     return (
         <div className="wrap-edit-user">

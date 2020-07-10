@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setUserAsync} from "../actions";
+import {setUsersAsync} from "../actions";
 import User from "./User";
 import "./Users.css"
 
@@ -9,14 +9,11 @@ function Users(){
   const users = useSelector(state => state.users);
 
   const setUsers = () =>{
-    dispatch(setUserAsync())
+    dispatch(setUsersAsync())
   }
   useEffect(() => {
     setUsers();
   },[]);
-  useEffect(() => {
-    console.log('testst',users)
-  },[users]);
   return (
     <div className="Users">
         {users.map((user,index) => <User key={index} user={user}/> )}

@@ -1,17 +1,20 @@
-import React, {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {setUserAsync} from "../actions";
 import {
   useRouteMatch
 } from "react-router-dom";
 import "./ViewUser.css"
 
 function ViewUser(props){
-    const users = useSelector(state => state.users);
+  const user = useSelector(state => state.user);
+    const dispatch = useDispatch()
     let {params} = useRouteMatch()
-    const [user, setUser] = useState({})
-    useEffect(() => {
-        const user = users.find(user => user.id === Number.parseInt(params.id));
-        setUser(user)
+    const setUser = async () =>{
+     await dispatch(setUserAsync(params.id))
+    }
+    useEffect( () => {
+      setUser();
       },[]);
     return (
       <div className="ViewUser">
