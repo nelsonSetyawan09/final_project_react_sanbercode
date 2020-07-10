@@ -20,6 +20,10 @@ function ViewUser(props){
         </div>
         <div className="view-user-body">
           <p>{user.description}</p>
+          <div className="phone-website">
+            <p>phone: {user.phone}</p>
+            <p>website: {user.website}</p>
+          </div>
         </div>
       </div>
     )
