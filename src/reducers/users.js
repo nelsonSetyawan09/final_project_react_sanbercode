@@ -9,7 +9,8 @@ const users = (state =[{name:"anggrainy"}],action) =>{
                 ...state
             ];
         case 'deleteUser':
-            return state.slice(action.index, 1);
+            state.splice(action.index, 1);
+            return state;
         case 'editUser':
                 state[action.index] = action.user;
                 return state;

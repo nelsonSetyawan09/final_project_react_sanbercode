@@ -1,6 +1,45 @@
 .User{
    width: 25%;
    padding: 15px;
-   background: lightcoral;
+   background: #546e7a;
    margin: 10px;
+   color: #fff;
+   font-weight: 300;
+   border-radius: 5px;
+   box-shadow: 1px 1px 3px rgba(110, 109, 109, 0.788);
+}
+
+.User .user-footer{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin:0;
+    padding-top: 15px;
+    justify-content: space-between;
+}
+.User .user-body{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.568);
+}
+.User .user-footer a,
+.User .user-footer .icon-delete {
+    text-decoration: none;
+    color:#ffab40;
+    cursor: pointer;
+}
+.User .user-footer a:hover,
+.User .user-footer .icon-delete:hover
+{
+    color:#ffd8a6;
+}
+
+@media only screen and (max-width: 760px) {
+    .User {
+     width: 35%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .User {
+     width: 80%;
+    }
 }

@@ -14,6 +14,9 @@ function Users(){
   useEffect(() => {
     setUsers();
   },[]);
+  useEffect(() => {
+    console.log('testst',users)
+  },[users]);
   return (
     <div className="Users">
         {users.map((user,index) => <User key={index} user={user}/> )}

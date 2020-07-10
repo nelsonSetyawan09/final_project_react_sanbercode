@@ -8,8 +8,13 @@ import {
 } from "react-router-dom";
 import AddUser from "./views/AddUser";
 import Users from "./views/Users";
+import EditUser from "./views/EditUser";
+import ViewUser from "./views/ViewUser"
 
 class App extends Component{
+  componentDidMount(){
+    
+  }
   render(){
     return (
       <Router>
@@ -27,6 +32,12 @@ class App extends Component{
               </Route>
               <Route path="/addUser">
                 <AddUser/>
+              </Route>
+              <Route path="/viewUser/:id">
+                <ViewUser/>
+              </Route>
+              <Route path="/editUser/:id">
+                <EditUser/>
               </Route>
             </Switch>
           </div>

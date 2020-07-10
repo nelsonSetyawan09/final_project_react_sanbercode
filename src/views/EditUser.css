@@ -1,0 +1,38 @@
+.wrap-edit-user{
+    margin: 15px auto;
+    border-radius: 5px;
+    width: 33%;
+    padding: 25px;
+    box-shadow: 1px 1px 3px gray;
+}
+.group-input-button{
+    text-align: right;
+}
+.wrap-edit-user button{
+    background: rgb(0, 188, 212);
+    border:none;
+    padding: 10px 25px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.wrap-edit-user .group-input{
+    padding: 15px;
+}
+
+.wrap-edit-user .group-input label{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: .75rem 0;
+}
+.wrap-edit-user .group-input label input{
+    border:none;
+    border-bottom: 2px solid gray;
+    padding: .5rem 0;
+    background-color: white;
+}
+.wrap-edit-user .group-input label input:focus{
+    border-bottom:2px solid rgb(6, 145, 187);
+    outline: none;
+}
