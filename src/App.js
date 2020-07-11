@@ -12,6 +12,14 @@ import EditUser from "./views/EditUser";
 import ViewUser from "./views/ViewUser"
 
 class App extends Component{
+  state = {
+    link: "en"
+  }
+   _handleClick =() =>{
+    this.setState( prevState => ({
+      link: prevState.link  === 'id' ? 'en' : 'id'
+    }))
+  }
   render(){
     return (
       <Router>
@@ -37,6 +45,9 @@ class App extends Component{
                 <EditUser/>
               </Route>
             </Switch>
+          </div>
+          <div>
+            <button onClick={this._handleClick}>Click Test</button>
           </div>
         </div>
       </Router>

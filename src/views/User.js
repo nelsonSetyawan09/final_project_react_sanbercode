@@ -12,7 +12,7 @@ export default function User(props){
   let useMatch = useRouteMatch();
   const dispatch = useDispatch()
   const handleDeleteUser = () =>{
-    dispatch(deleteUserAsync(props.user.id-1))
+    dispatch(deleteUserAsync(props.user.id-1));
   }
     return (
         <div className="User">

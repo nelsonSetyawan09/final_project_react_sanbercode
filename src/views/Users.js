@@ -2,12 +2,12 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setUsersAsync} from "../actions";
 import User from "./User";
-import "./Users.css"
+import "./Users.css";
 
 function Users(){
-  const dispatch = useDispatch()
   const users = useSelector(state => state.users);
-
+  const dispatch = useDispatch();
+  
   const setUsers = () =>{
     dispatch(setUsersAsync())
   }
